@@ -9,7 +9,7 @@ Libraries for interacting with GitHub's web services
 ## Modules
 
 ### Tadukoo GitHub
-Tadukoo GitHub is used to interact with with GitHub's REST API.
+Tadukoo GitHub is used to interact with GitHub's REST API.
 
 ## Current Plans
 Check out the [project page](https://tadukooverse.github.io/projects/TadukooGitHub.html) for information about current 

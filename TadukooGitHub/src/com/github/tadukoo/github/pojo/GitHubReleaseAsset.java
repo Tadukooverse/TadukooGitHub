@@ -46,7 +46,7 @@ public class GitHubReleaseAsset extends AbstractJSONClass{
 	}
 	
 	/**
-	 * @return The Browset Download URL of the Release Asset
+	 * @return The Browser Download URL of the Release Asset
 	 */
 	public String getBrowserDownloadUrl(){
 		return (String) getItem("browser_download_url");

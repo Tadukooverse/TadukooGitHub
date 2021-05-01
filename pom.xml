@@ -63,7 +63,7 @@
 		<junit.platform.artifactID>junit-platform-runner</junit.platform.artifactID>
 		
 		<!-- Tadukoo Versions -->
-		<tadukoo.webservices.version>0.1.1-Alpha</tadukoo.webservices.version>
+		<tadukoo.webservices.version>0.1.2-Alpha-SNAPSHOT</tadukoo.webservices.version>
 		<tadukoo.webservices.rest.version>${tadukoo.webservices.version}</tadukoo.webservices.rest.version>
 		
 		<!-- Tadukoo Web Services Info -->

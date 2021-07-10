@@ -1,5 +1,6 @@
 package com.github.tadukoo.github.releases;
 
+import com.github.tadukoo.github.pojo.GitHubRelease;
 import com.github.tadukoo.parsing.json.JSONArray;
 import com.github.tadukoo.web.rest.Endpoint;
 import com.github.tadukoo.web.rest.MethodType;
@@ -13,7 +14,7 @@ import java.net.http.HttpResponse;
  * @author Logan Ferree (Tadukoo)
  * @version Alpha v.0.1
  */
-public class ListReleasesEndpoint implements Endpoint<JSONArray>{
+public class ListReleasesEndpoint implements Endpoint<JSONArray<GitHubRelease>>{
 	/** The owner of the repository */
 	private final String owner;
 	/** The name of the repository */
@@ -44,7 +45,7 @@ public class ListReleasesEndpoint implements Endpoint<JSONArray>{
 	
 	/** {@inheritDoc} */
 	@Override
-	public HttpResponse.BodyHandler<JSONArray> getBodyHandler(){
-		return new JSONArrayBodyHandler();
+	public HttpResponse.BodyHandler<JSONArray<GitHubRelease>> getBodyHandler(){
+		return new JSONArrayBodyHandler<>(GitHubRelease.class);
 	}
 }

@@ -3,13 +3,12 @@ package com.github.tadukoo.github.releases;
 import com.github.tadukoo.github.pojo.GitHubRelease;
 import com.github.tadukoo.github.pojo.GitHubReleaseAsset;
 import com.github.tadukoo.github.pojo.GitHubUser;
-import com.github.tadukoo.parsing.json.JSONArray;
-import com.github.tadukoo.parsing.json.JSONClass;
 import com.github.tadukoo.web.rest.MethodType;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -84,73 +83,69 @@ public class GetReleaseByTagEndpointTest{
 		assertFalse(author.getSiteAdmin());
 		
 		// Verify assets
-		JSONArray assets = release.getAssets();
+		List<GitHubReleaseAsset> assets = release.getAssets();
 		assertEquals(3, assets.size());
-		for(Object asset: assets.getItems()){
-			// Convert the object to a Release Asset
-			JSONClass clazz = (JSONClass) asset;
-			GitHubReleaseAsset theAsset = new GitHubReleaseAsset(clazz);
-			
+		for(GitHubReleaseAsset asset: assets){
 			// Verify the asset based on which one it is
-			long ID = theAsset.getId().longValue();
+			long ID = asset.getId().longValue();
 			if(ID == 29793060){
 				// Tadukoo Functions jar
 				assertEquals("https://api.github.com/repos/Tadukooverse/TadukooUtil/releases/assets/29793060",
-						theAsset.getUrl());
-				assertEquals(29793060, theAsset.getId());
-				assertEquals("MDEyOlJlbGVhc2VBc3NldDI5NzkzMDYw", theAsset.getNodeId());
-				assertEquals("TadukooFunctions-0.3-Alpha.jar", theAsset.getName());
-				assertNull(theAsset.getLabel());
-				assertEquals("application/java-archive", theAsset.getContentType());
-				assertEquals("uploaded", theAsset.getState());
-				assertEquals(37026, theAsset.getSize());
-				assertNotNull(theAsset.getDownloadCount());
-				assertEquals("2020-12-20T00:47:26Z", theAsset.getCreatedAt());
-				assertEquals("2020-12-20T00:47:26Z", theAsset.getUpdatedAt());
+						asset.getUrl());
+				assertEquals(29793060, asset.getId());
+				assertEquals("MDEyOlJlbGVhc2VBc3NldDI5NzkzMDYw", asset.getNodeId());
+				assertEquals("TadukooFunctions-0.3-Alpha.jar", asset.getName());
+				assertNull(asset.getLabel());
+				assertEquals("application/java-archive", asset.getContentType());
+				assertEquals("uploaded", asset.getState());
+				assertEquals(37026, asset.getSize());
+				assertNotNull(asset.getDownloadCount());
+				assertEquals("2020-12-20T00:47:26Z", asset.getCreatedAt());
+				assertEquals("2020-12-20T00:47:26Z", asset.getUpdatedAt());
 				assertEquals("https://github.com/Tadukooverse/TadukooUtil/releases/download/v.0.3-Alpha/" +
 								"TadukooFunctions-0.3-Alpha.jar",
-						theAsset.getBrowserDownloadUrl());
+						asset.getBrowserDownloadUrl());
 			}else if(ID == 29793059){
 				// Tadukoo Lang jar
 				assertEquals("https://api.github.com/repos/Tadukooverse/TadukooUtil/releases/assets/29793059",
-						theAsset.getUrl());
-				assertEquals(29793059, theAsset.getId());
-				assertEquals("MDEyOlJlbGVhc2VBc3NldDI5NzkzMDU5", theAsset.getNodeId());
-				assertEquals("TadukooLang-0.3-Alpha.jar", theAsset.getName());
-				assertNull(theAsset.getLabel());
-				assertEquals("application/java-archive", theAsset.getContentType());
-				assertEquals("uploaded", theAsset.getState());
-				assertEquals(14597, theAsset.getSize());
-				assertNotNull(theAsset.getDownloadCount());
-				assertEquals("2020-12-20T00:47:26Z", theAsset.getCreatedAt());
-				assertEquals("2020-12-20T00:47:26Z", theAsset.getUpdatedAt());
+						asset.getUrl());
+				assertEquals(29793059, asset.getId());
+				assertEquals("MDEyOlJlbGVhc2VBc3NldDI5NzkzMDU5", asset.getNodeId());
+				assertEquals("TadukooLang-0.3-Alpha.jar", asset.getName());
+				assertNull(asset.getLabel());
+				assertEquals("application/java-archive", asset.getContentType());
+				assertEquals("uploaded", asset.getState());
+				assertEquals(14597, asset.getSize());
+				assertNotNull(asset.getDownloadCount());
+				assertEquals("2020-12-20T00:47:26Z", asset.getCreatedAt());
+				assertEquals("2020-12-20T00:47:26Z", asset.getUpdatedAt());
 				assertEquals("https://github.com/Tadukooverse/TadukooUtil/releases/download/v.0.3-Alpha/" +
 								"TadukooLang-0.3-Alpha.jar",
-						theAsset.getBrowserDownloadUrl());
+						asset.getBrowserDownloadUrl());
 			}else if(ID == 29793058){
 				// Tadukoo Util jar
 				assertEquals("https://api.github.com/repos/Tadukooverse/TadukooUtil/releases/assets/29793058",
-						theAsset.getUrl());
-				assertEquals(29793058, theAsset.getId());
-				assertEquals("MDEyOlJlbGVhc2VBc3NldDI5NzkzMDU4", theAsset.getNodeId());
-				assertEquals("TadukooUtil-0.3-Alpha.jar", theAsset.getName());
-				assertNull(theAsset.getLabel());
-				assertEquals("application/java-archive", theAsset.getContentType());
-				assertEquals("uploaded", theAsset.getState());
-				assertEquals(28793, theAsset.getSize());
-				assertNotNull(theAsset.getDownloadCount());
-				assertEquals("2020-12-20T00:47:25Z", theAsset.getCreatedAt());
-				assertEquals("2020-12-20T00:47:26Z", theAsset.getUpdatedAt());
+						asset.getUrl());
+				assertEquals(29793058, asset.getId());
+				assertEquals("MDEyOlJlbGVhc2VBc3NldDI5NzkzMDU4", asset.getNodeId());
+				assertEquals("TadukooUtil-0.3-Alpha.jar", asset.getName());
+				assertNull(asset.getLabel());
+				assertEquals("application/java-archive", asset.getContentType());
+				assertEquals("uploaded", asset.getState());
+				assertEquals(28793, asset.getSize());
+				assertNotNull(asset.getDownloadCount());
+				assertEquals("2020-12-20T00:47:25Z", asset.getCreatedAt());
+				assertEquals("2020-12-20T00:47:26Z", asset.getUpdatedAt());
 				assertEquals("https://github.com/Tadukooverse/TadukooUtil/releases/download/v.0.3-Alpha/" +
 								"TadukooUtil-0.3-Alpha.jar",
-						theAsset.getBrowserDownloadUrl());
+						asset.getBrowserDownloadUrl());
 			}else{
 				throw new IllegalArgumentException("Unknown Release Asset with ID: " + ID + " and name: " +
-						theAsset.getName());
+						asset.getName());
 			}
 			
 			// Verify the uploader, this is the same for all 3 assets
-			GitHubUser uploader = theAsset.getUploader();
+			GitHubUser uploader = asset.getUploader();
 			assertEquals("Tadukoo", uploader.getLogin());
 			assertEquals(3397274, uploader.getId());
 			assertEquals("MDQ6VXNlcjMzOTcyNzQ=", uploader.getNodeId());

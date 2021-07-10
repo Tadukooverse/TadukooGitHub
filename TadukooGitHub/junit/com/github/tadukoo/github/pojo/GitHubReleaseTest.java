@@ -1,117 +1,87 @@
 package com.github.tadukoo.github.pojo;
 
-import com.github.tadukoo.parsing.json.AbstractJSONArray;
+import com.github.tadukoo.junit.MappedPojoTest;
 import com.github.tadukoo.parsing.json.JSONArray;
-import com.github.tadukoo.util.ListUtil;
+import com.github.tadukoo.parsing.json.JSONArrayList;
 import org.junit.jupiter.api.Test;
-import com.github.tadukoo.util.map.MapUtil;
-import com.github.tadukoo.util.pojo.AbstractMappedPojo;
-import com.github.tadukoo.util.tuple.Pair;
-
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class GitHubReleaseTest{
 	
-	private GitHubRelease pojo = new GitHubRelease();
+	private final GitHubRelease pojo = new GitHubRelease();
 	
 	@Test
-	public void testConstructor(){
-		assertTrue(pojo.getMap().isEmpty());
+	public void testEmptyConstructor()
+			throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException{
+		MappedPojoTest.assertEmptyConstructor(GitHubRelease.class);
 	}
 	
 	@Test
-	public void testPojoConstructor(){
-		pojo = new GitHubRelease(new AbstractMappedPojo(){
-			@Override
-			public Map<String, Object> getMap(){
-				return MapUtil.createMap(Pair.of("Derp", 5), Pair.of("Test", true));
-			}
-		});
-		Map<String, Object> map = pojo.getMap();
-		assertFalse(map.isEmpty());
-		assertTrue(map.containsKey("Derp"));
-		assertEquals(5, map.get("Derp"));
-		assertTrue(map.containsKey("Test"));
-		assertTrue((Boolean) map.get("Test"));
+	public void testPojoConstructor()
+			throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException{
+		MappedPojoTest.assertPojoConstructor(GitHubRelease.class);
 	}
 	
 	@Test
 	public void testSetUrl(){
-		pojo.setUrl("some_test_string");
-		assertEquals("some_test_string", pojo.getUrl());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getUrl, pojo::setUrl, "url");
 	}
 	
 	@Test
 	public void testSetHtmlUrl(){
-		pojo.setHtmlUrl("some_test_string");
-		assertEquals("some_test_string", pojo.getHtmlUrl());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getHtmlUrl, pojo::setHtmlUrl, "html_url");
 	}
 	
 	@Test
 	public void testSetAssetsUrl(){
-		pojo.setAssetsUrl("some_test_string");
-		assertEquals("some_test_string", pojo.getAssetsUrl());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getAssetsUrl, pojo::setAssetsUrl, "assets_url");
 	}
 	
 	@Test
 	public void testSetUploadUrl(){
-		pojo.setUploadUrl("some_test_string");
-		assertEquals("some_test_string", pojo.getUploadUrl());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getUploadUrl, pojo::setUploadUrl, "upload_url");
 	}
 	
 	@Test
 	public void testSetTarballUrl(){
-		pojo.setTarballUrl("some_test_string");
-		assertEquals("some_test_string", pojo.getTarballUrl());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getTarballUrl, pojo::setTarballUrl, "tarball_url");
 	}
 	
 	@Test
 	public void testSetZipballUrl(){
-		pojo.setZipballUrl("some_test_string");
-		assertEquals("some_test_string", pojo.getZipballUrl());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getZipballUrl, pojo::setZipballUrl, "zipball_url");
 	}
 	
 	@Test
 	public void testSetId(){
-		pojo.setId(42.0);
-		assertEquals(42.0, pojo.getId());
+		MappedPojoTest.assertDoubleGetSetCustom(pojo, pojo::getId, pojo::setId, "id");
 	}
 	
 	@Test
 	public void testSetNodeId(){
-		pojo.setNodeId("some_test_string");
-		assertEquals("some_test_string", pojo.getNodeId());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getNodeId, pojo::setNodeId, "node_id");
 	}
 	
 	@Test
 	public void testSetTagName(){
-		pojo.setTagName("some_test_string");
-		assertEquals("some_test_string", pojo.getTagName());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getTagName, pojo::setTagName, "tag_name");
 	}
 	
 	@Test
 	public void testSetTargetCommitish(){
-		pojo.setTargetCommitish("some_test_string");
-		assertEquals("some_test_string", pojo.getTargetCommitish());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getTargetCommitish, pojo::setTargetCommitish, "target_commitish");
 	}
 	
 	@Test
 	public void testSetName(){
-		pojo.setName("some_test_string");
-		assertEquals("some_test_string", pojo.getName());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getName, pojo::setName, "name");
 	}
 	
 	@Test
 	public void testSetBody(){
-		pojo.setBody("some_test_string");
-		assertEquals("some_test_string", pojo.getBody());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getBody, pojo::setBody, "body");
 	}
 	
 	@Test
@@ -128,33 +98,26 @@ public class GitHubReleaseTest{
 	
 	@Test
 	public void testSetCreatedAt(){
-		pojo.setCreatedAt("some_test_string");
-		assertEquals("some_test_string", pojo.getCreatedAt());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getCreatedAt, pojo::setCreatedAt, "created_at");
 	}
 	
 	@Test
 	public void testSetPublishedAt(){
-		pojo.setPublishedAt("some_test_string");
-		assertEquals("some_test_string", pojo.getPublishedAt());
+		MappedPojoTest.assertStringGetSetCustom(pojo, pojo::getPublishedAt, pojo::setPublishedAt, "published_at");
 	}
 	
 	@Test
-	public void testSetAuthor()
-			throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException{
-		GitHubUser user = new GitHubUser();
-		pojo.setAuthor(user);
-		assertEquals(user, pojo.getAuthor());
+	public void testSetAuthor() throws ReflectiveOperationException{
+		MappedPojoTest.assertValueGetSetCustom(pojo, pojo::getAuthor, pojo::setAuthor, "author",
+				new GitHubUser(), new GitHubUser());
 	}
 	
 	@Test
-	public void testSetAssets(){
-		JSONArray array = new AbstractJSONArray(new ArrayList<>()){
-			@Override
-			public List<Object> getItems(){
-				return ListUtil.createList(new GitHubReleaseAsset());
-			}
-		};
-		pojo.setAssets(array);
-		assertEquals(array, pojo.getAssets());
+	public void testSetAssets() throws ReflectiveOperationException{
+		JSONArray<GitHubReleaseAsset> assets1 = new JSONArrayList<>();
+		JSONArray<GitHubReleaseAsset> assets2 = new JSONArrayList<>();
+		assets2.add(new GitHubReleaseAsset());
+		MappedPojoTest.assertValueGetSetCustom(pojo, pojo::getAssets, pojo::setAssets, "assets",
+				assets1, assets2);
 	}
 }

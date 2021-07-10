@@ -23,6 +23,7 @@ public class GitHubUser extends AbstractJSONClass{
 	 *
 	 * @param pojo The MappedPojo to use to populate fields
 	 */
+	@SuppressWarnings("unused")
 	public GitHubUser(MappedPojo pojo){
 		super(pojo);
 	}

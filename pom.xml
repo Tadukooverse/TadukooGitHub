@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.tadukoo.github</groupId>
 	<artifactId>TadukooGitHubParent</artifactId>
-	<version>0.1.2-Alpha-SNAPSHOT</version>
+	<version>0.1.2-Alpha</version>
 	<packaging>pom</packaging>
 	<description>Libraries for interacting with GitHub's web services</description>
 	<modules>
@@ -19,6 +19,6 @@
 	<properties>
 		<!-- Info -->
 		<shortName>TadukooGitHub</shortName>
-		<tadukoo.webservices.version>0.1.2-Alpha-SNAPSHOT</tadukoo.webservices.version>
+		<tadukoo.webservices.version>0.1.2-Alpha</tadukoo.webservices.version>
 	</properties>
 </project>

@@ -26,6 +26,7 @@ public class GitHubRelease extends AbstractJSONClass{
 	 *
 	 * @param pojo The MappedPojo to use to populate fields
 	 */
+	@SuppressWarnings("unused")
 	public GitHubRelease(MappedPojo pojo){
 		super(pojo);
 	}
@@ -309,9 +310,14 @@ public class GitHubRelease extends AbstractJSONClass{
 	
 	/**
 	 * @return The {@link GitHubReleaseAsset}s of the Release (in a {@link JSONArray})
+	 * @throws NoSuchMethodException See {@link java.lang.reflect.Constructor#newInstance(Object...)}
+	 * @throws IllegalAccessException See {@link java.lang.reflect.Constructor#newInstance(Object...)}
+	 * @throws InvocationTargetException See {@link java.lang.reflect.Constructor#newInstance(Object...)}
+	 * @throws InstantiationException See {@link java.lang.reflect.Constructor#newInstance(Object...)}
 	 */
-	public JSONArray getAssets(){
-		return (JSONArray) getItem("assets");
+	public JSONArray<GitHubReleaseAsset> getAssets()
+			throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException{
+		return getJSONArrayItem("assets", GitHubReleaseAsset.class);
 	}
 	
 	/**
@@ -319,7 +325,7 @@ public class GitHubRelease extends AbstractJSONClass{
 	 *
 	 * @param assets The {@link GitHubReleaseAsset}s of the Release (in a {@link JSONArray})
 	 */
-	public void setAssets(JSONArray assets){
+	public void setAssets(JSONArray<GitHubReleaseAsset> assets){
 		setItem("assets", assets);
 	}
 }

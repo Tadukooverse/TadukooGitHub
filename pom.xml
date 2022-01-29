@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.github.tadukoo.maven</groupId>
 		<artifactId>TadukooMavenWebServicePOM</artifactId>
-		<version>0.3.1-Alpha</version>
+		<version>0.4-Alpha-SNAPSHOT</version>
 	</parent>
 	<groupId>com.github.tadukoo.github</groupId>
 	<artifactId>TadukooGitHubParent</artifactId>
@@ -19,6 +19,7 @@
 	<properties>
 		<!-- Info -->
 		<shortName>TadukooGitHub</shortName>
+		<tadukoo.util.version>0.6-Beta-SNAPSHOT</tadukoo.util.version>
 		<tadukoo.webservices.version>0.1.4-Alpha-SNAPSHOT</tadukoo.webservices.version>
 	</properties>
 </project>

@@ -1,6 +1,6 @@
 package com.github.tadukoo.github.pojo;
 
-import com.github.tadukoo.junit.MappedPojoTest;
+import com.github.tadukoo.util.junit.pojo.MappedPojoTest;
 import org.junit.jupiter.api.Test;
 import java.lang.reflect.InvocationTargetException;
 
